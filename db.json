@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "price": "430",
+      "quantity": "412",
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "Pâtes",
+      "price": 4500,
+      "quantity": 1000,
+      "selected": true,
+      "available": true,
+      "id": 4
+    },
+    {
+      "id": 6,
+      "name": "P1",
+      "price": "70",
+      "quantity": "5",
+      "selected": false,
+      "available": true
+    }
+  ]
+}
