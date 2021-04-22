@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ActionEvent, AppDataState, ProductActionsTypes} from '../../../../state/product.state';
 import {Product} from '../../../../model/product.model';
+import {EventDriverService} from '../../../../state/event.driver.service';
 
 @Component({
   selector: 'app-product-item',
@@ -11,22 +12,21 @@ import {Product} from '../../../../model/product.model';
 export class ProductItemComponent implements OnInit {
 
   @Input() product ?: Product;
-  @Output() productsEventEmitter  : EventEmitter<ActionEvent> = new EventEmitter<ActionEvent>();
 
-  constructor() { }
+  constructor(private eventDriverService : EventDriverService) { }
 
   ngOnInit(): void {
   }
 
   onSelected(product: Product) {
-    this.productsEventEmitter.emit({type : ProductActionsTypes.SELECT_PRODUCT, payLoad : product});
+    this.eventDriverService.publishEvent({type : ProductActionsTypes.SELECT_PRODUCT, payLoad : product});
   }
 
   onDelete(product: Product) {
-    this.productsEventEmitter.emit({type : ProductActionsTypes.DELETE_PRODUCT, payLoad : product});
+    this.eventDriverService.publishEvent({type : ProductActionsTypes.DELETE_PRODUCT, payLoad : product});
   }
 
   onUpdate(product: Product) {
-    this.productsEventEmitter.emit({type : ProductActionsTypes.EDIT_PRODUCT, payLoad : product});
+    this.eventDriverService.publishEvent({type : ProductActionsTypes.EDIT_PRODUCT, payLoad : product});
   }
 }

@@ -11,15 +11,10 @@ import {Product} from '../../../model/product.model';
 export class ProductListComponent implements OnInit {
 
   @Input() productsInput$ : Observable<AppDataState<Product[]>> | null = null;
-  @Output() productsEventEmitter  : EventEmitter<ActionEvent> = new EventEmitter<ActionEvent>();
   readonly DataStateEnum = DataStateEnum;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onActionEvent($event: ActionEvent) {
-    this.productsEventEmitter.emit($event);
   }
 }

@@ -2,10 +2,10 @@
   "products": [
     {
       "id": 1,
-      "name": "Computer",
+      "name": "Computer Science",
       "price": "430",
       "quantity": "412",
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
